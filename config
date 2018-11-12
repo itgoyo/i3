@@ -158,8 +158,8 @@ bindsym $mod+5		workspace $ws5
 bindsym $mod+6		workspace $ws6
 bindsym $mod+7		workspace $ws7
 bindsym $mod+8		workspace $ws8
-bindsym $mod+9		workspace $ws9
-bindsym $mod+0		workspace $ws10
+#bindsym $mod+9		workspace $ws9
+#bindsym $mod+0		workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1	move container to workspace $ws1
@@ -173,12 +173,26 @@ bindsym $mod+Shift+8	move container to workspace $ws8
 bindsym $mod+Shift+9	move container to workspace $ws9
 bindsym $mod+Shift+0	move container to workspace $ws10
 
+# #---Media Keys---# #
+
+
+# for sound control
+#bindsym XF86AudioRaiseVolume exec amixer set Master playback 5+ 
+#bindsym XF86AudioLowerVolume exec amixer set Master playback 5- 
+#bindsym XF86AudioMute exec amixer set Master toggle
+
+
+bindsym $mod+o exec amixer set Master playback 5- 
+bindsym $mod+p exec amixer set Master playback 5+ 
+#bindsym $mod+o exec amixer set Master toggle
+#bindsym $mod+p exec amixer set PCM toggle
+
 
 
 #打开软件时自动移至相应工作区
 assign [class="i3-sensible-terminal"] $WS1
-assign [class="Firefox"] $WS2
-assign [class="vim"] $WS4
+#assign [class="Firefox"] $WS2
+#assign [class="vim"] $WS4
 
 
 

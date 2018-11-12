@@ -1,0 +1,121 @@
+#!/bin/bash
+
+#echo "{\"version\":1}"
+#echo "{ \"version\": 1, \"stop_signal\": 10, \"cont_signal\": 12, \"click_events\": true }"
+echo "{ \"version\": 1, \"click_events\": true }"
+echo "[[]"
+conky -d -c /home/luca/.config/i3/conkyrc
+
+IFS="}"
+while read;do
+  IFS=" "
+  STR=`echo $REPLY | sed -e s/[{}]//g -e "s/ \"/\"/g" | awk '{n=split($0,a,","); for (i=1; i<=n; i++) {m=split(a[i],b,":"); if (b[1] == "\"name\"") {NAME=b[2]} if (b[1] =="\"x\"") {X=b[2]} if (b[1] =="\"y\"") {Y=b[2]} } print NAME " " X " " Y}'`
+  read NAME X Y <<< $STR
+  X=$(($X-50))
+  case "${NAME}" in
+    \"updates\")
+      notify-send -a "Available updates" -u normal "$(yaourt -Qu)" &
+      #i3-msg -q "exec --no-startup-id urxvt -title updating -e yaourt -Syyua --noconfirm" &
+      ;;
+    \"mpd_i\")
+      mpc --quiet toggle &
+      ;;
+    \"mpd_r\")
+      mpc --quiet random &
+      ;;
+    \"mpd_t\")
+      mpc --quiet prev &
+      ;;
+     \"mpd_a\")
+      mpc --quiet next &
+      ;;
+     \"mpd_-\")
+      mpc --quiet stop &
+      ;;
+     \"mpd_b\")
+      i3-msg -q "exec --no-startup-id urxvt -title music -e ncmpcpp" &
+      ;;
+    \"time\")
+      notify-send -a "Calendar" -u normal "$(cal)" &
+      ;;
+     \"menu\")
+     #i3-msg -q "exec --no-startup-id mygtkmenu ~/.config/GTKmenu/appmenu" &
+     i3-msg -q "exec --no-startup-id sh ~/.config/i3/scripts/menu" &
+      ;;
+    \"date\")
+      i3-msg -q "exec --no-startup-id yad --no-buttons --sticky --geometry=+1079+40 --class "CALENDAR" --calendar" &
+      #i3-msg -q "exec --no-startup-id yad --no-buttons --sticky --geometry=+1056+24 --class "CALENDAR" --calendar" &
+      #sleep 10 && killall yad &
+      ;;
+    \"kill\")
+      i3-msg -q "kill" &
+      ;;
+    \"maxi\")
+      i3-msg -q "floating toggle" &
+      ;;
+    \"mini\")
+      i3-msg -q "border toggle" &
+      ;;
+    \"temp\")
+      notify-send -a "Temperatures" -u normal "$(temp_nc)" &
+      ;;
+    \"bat\")
+      notify-send -a "Battery" -u normal "$(sh ~/.config/i3/scripts/battery)" &
+      ;;
+    \"net_up\")
+      notify-send -a "External IP" -u normal "$(sh ~/.config/i3/scripts/ip-external)" &
+      ;;
+    \"net_down\")
+      notify-send -a "Internal IP" -u normal "$(sh ~/.config/i3/scripts/ip-internal)" &
+      ;;
+    \"net_up_i\")
+      i3-msg -q "exec --no-startup-id firefox" &
+      ;;
+     \"net_down_i\")
+      i3-msg -q "exec --no-startup-id chromium" &
+      ;;
+    \"kernel\")
+      #notify-send -a "Memo" -u normal "$(cat ~/.reminders)" &
+      i3-msg -q "exec --no-startup-id xfce4-appfinder" &
+      ;;
+    \"home\")
+      notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)" &
+      ;;
+    \"fsicon\")
+      i3-msg -q "exec --no-startup-id thunar" &
+      ;;
+    \"mem\")
+      notify-send -a "RAM" -u normal "$(free -m | grep total && free -m | grep Mem)" &
+      ;;
+    \"cpu\")
+      i3-msg -q "exec --no-startup-id xfce4-taskmanager" &
+      ;;
+    \"bright\")
+      ~/.config/i3/scripts/lightdown &
+      ;;
+     \"bright_i\")
+      ~/.config/i3/scripts/lightup &
+      ;;
+    #\"bright\")
+      #LEVEL=`/home/luca/.config/i3/scripts/blevel.sh`
+      #OUT=`yad --scale --value $LEVEL --button gtk-ok:0 --sticky --geometry=+$X+24 --class "YADWIN" --text-align center`
+      #if [[ $? -eq 0 ]];then
+        #Q=`/home/luca/.config/i3/scripts/conkexec.sh sudo light -S $OUT`
+      #fi
+      #;;
+    \"volume\")
+      i3-msg -q "exec --no-startup-id pavucontrol" &
+      ;;
+    #\"volume\")
+      #VOL=`/home/luca/.config/i3/scripts/pacvol.sh display | sed "s/[^1-9]//" | sed "s/%//"`
+      #OUT=`yad --scale --value $VOL --button gtk-ok:0 --sticky --geometry=+$X+24 --class "YADWIN" --text-align center`
+      #if [[ $? -eq 0 ]];then
+        #TARGET="$((655*$OUT))"
+        #/home/luca/.config/i3/scripts/conkexec.sh pacmd set-sink-volume 0 $TARGET
+      #fi
+      #;;
+    *)
+      ;;
+  esac
+  IFS="}"
+done

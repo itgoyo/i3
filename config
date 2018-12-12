@@ -413,5 +413,7 @@ exec --no-startup-id fcitx-sogoupingyin
 exec --no-startup-id feh --bg-fill /home/itgoyo/cgi_lib.jpg
 #caps:swapescape
 
+
+#开机修改键盘映射
 exec --no-startup-id setxkbmap -option caps:swapescape
 

@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -402,7 +402,8 @@ exec --no-startup-id fcitx -r
 #exec --no-startup-id fcitx-qimpanel
 exec --no-startup-id sogou-qimpanel
 exec --no-startup-id compton -b
-#bindsym $mod+Control+Return exec urxvt -sh 40 #透明参数0-100
+
+bindsym $mod+Control+Return exec urxvt -sh 40 #透明参数0-100
 
 
 exec --no-startup-id fcitx-sogoupingyin

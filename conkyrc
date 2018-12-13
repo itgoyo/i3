@@ -8,7 +8,6 @@ override_utf8_locale no
 short_units yes
 if_up_strictness address
 cpu_avg_samples 2
-cpu_avg_samples 2
 
 
 TEXT

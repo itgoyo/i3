@@ -42,7 +42,8 @@ bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+g exec google-chrome --proxy-server='127.0.0.1:8080'
 
 # change focus
 bindsym $mod+j focus left
@@ -206,6 +207,10 @@ bindsym $mod+p exec amixer set Master playback 5+
 
 #打开软件时自动移至相应工作区
 assign [class="i3-sensible-terminal"] $WS1
+assign [class="Firefox"] $WS2
+assign [class="google-chrome"] $W2
+assign [class="google-chrome-stable"] $WS2
+assign [class="chrome"] $WS2
 #assign [class="Firefox"] $WS2
 #assign [class="vim"] $WS4
 
@@ -305,7 +310,8 @@ mode "$mode_gaps_outer" {
 set $mode_power power
 bindsym Mod1+Control+l mode "$mode_power"
 mode "$mode_power" {
-    bindsym l mode "default", exec --no-startup-id /home/itgoyo/.config/i3/i3exit lock
+    #bindsym l mode "default", exec --no-startup-id /home/itgoyo/.config/i3/i3exit lock
+    bindsym l mode "default", exec i3lock-fancy -g
     bindsym e mode "default", exec --no-startup-id /home/itgoyo/.config/i3/i3exit logout
     bindsym s mode "default", exec --no-startup-id /home/itgoyo/.config/i3/i3exit suspend
     bindsym h mode "default", exec --no-startup-id /home/itgoyo/.config/i3/i3exit hibernate

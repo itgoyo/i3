@@ -31,6 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return layout tabbed exec xfce4-terminal  #支持透明背景,打开即为tabbed布局
 bindsym $mod+Return exec xfce4-terminal  #支持透明背景
 bindsym $mod+control+t exec xfce4-terminal  #支持透明背景
 
@@ -142,27 +143,40 @@ bindsym $mod+a focus parent
 #bindsym $mod+backslash		workspace back_and_forth
 
 
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+#set $ws1 "1"
+#set $ws2 "2"
+#set $ws3 "3"
+#set $ws4 "4"
+#set $ws5 "5"
+#set $ws6 "6"
+#set $ws7 "7"
+#set $ws8 "8"
+#set $ws9 "9"
+#set $ws10 "10"
 
-# set $WS1 1:
-# set $WS2 2:
-# set $WS3 3:
-# set $WS4 4:
-# set $WS5 5:
-# set $WS6 6:
-# set $WS7 7:
-# set $WS8 8:
-# set $WS9 9:
-# set $WS10 10:
+ set $ws1 "1:"
+ set $ws2 "2:"
+ set $ws3 "3:"
+ set $ws4 "4:"
+ set $ws5 "5:"
+ set $ws6 "6:"
+ set $ws7 "7:"
+ set $ws8 "8:"
+ set $ws9 "9:"
+ set $ws10 "10:"
+
+
+# switch to workspace
+#bindsym $mod+1		workspace $ws1
+#bindsym $mod+2		workspace $ws2
+#bindsym $mod+3		workspace $ws3
+#bindsym $mod+4		workspace $ws4
+#bindsym $mod+5		workspace $ws5
+#bindsym $mod+6		workspace $ws6
+#bindsym $mod+7		workspace $ws7
+#bindsym $mod+8		workspace $ws8
+#bindsym $mod+9		workspace $ws9
+#bindsym $mod+0		workspace $ws10
 
 
 # switch to workspace
@@ -267,7 +281,7 @@ bindsym $mod+r mode "resize"
 #	position top
 #}
 #********************************************i3-gaps*********************************
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 
 gaps inner 8
 gaps outer 6
@@ -355,14 +369,15 @@ set $transparent		#00000000
 set $background #10101000
 set $foreground #ffffff
 set $gray       #d0d0d0
-set $primary    #F58E8E
 set $secondary  #79D4D5
-set $tertiary   #7AABD4
 set $additional #26CE8D
 set $warning    #E7176A
 
+#set $primary    #F58E8E
+#set $tertiary   #7AABD4
 
-
+set $primary    #F58E8E
+set $tertiary   #5c4d4d
 # colors                BORDER      BACKGROUND TEXT        INDICATOR
 client.focused          $primary    $primary   $foreground $primary
 client.focused_inactive $secondary  $secondary $foreground $secondary

@@ -15,14 +15,13 @@ TEXT
 
 
 
-{ "full_text" : "MPD" , "color" : "\#7996a9" } ,
+{ "full_text" : "♪ ♩ ♫ ♬" , "color" : "\#7996a9" } ,
 { "full_text" : "${if_mpd_playing}${mpd_smart 50} ${mpd_elapsed}/${mpd_length}${else}${mpd_status}${endif}" } ,
 
 ${if_existing /sys/class/net/enp0s31f6/operstate up} {"name": "separator", "full_text": "│",                       "color": "\#565656", "separator_block_width": 0},  ${endif}
 ${if_existing /sys/class/net/enp0s31f6/operstate up} {"name": "net_down_i","full_text": " ",                      "color": "\#A4DC6A", "separator_block_width": 0},  ${endif}
 ${if_existing /sys/class/net/enp0s31f6/operstate up} {"name": "net_down",  "full_text": "${downspeed enp0s31f6}",     "color": "\#A4DC6A"},                              ${endif}
-${if_existing /sys/class/net/enp0s31f6/operstate up} {"name": "net_up_i",  "full_text": " ",                      "color": "\#FF797b", "separator_block_width": 0},  ${endif}
-${if_existing /sys/class/net/enp0s31f6/operstate up} {"name": "net_up",    "full_text": "${upspeed enp0s31f6}",       "color": "\#FF797b", "separator_block_width": 0},  ${endif}
+${if_existing /sys/class/net/enp0s31f6/operstate up} {"name": "net_up_i",  "full_text": " ",                      "color": "\#FF797b", "separator_block_width": 0},  ${endif}${if_existing /sys/class/net/enp0s31f6/operstate up} {"name": "net_up",    "full_text": "${upspeed enp0s31f6}",       "color": "\#FF797b", "separator_block_width": 0},  ${endif}
 {"name": "separator", "full_text": "│",                                                                          "color": "\#565656", "separator_block_width": 0},
 #{"name": "kernel",   "full_text": "${kernel}",                                                                  "color": "\#C599BB", "separator_block_width": 4},
 #{ "full_text": " ${exec curl icanhazip.com}"},

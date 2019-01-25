@@ -35,6 +35,9 @@ floating_modifier $mod
 bindsym $mod+Return exec xfce4-terminal  #支持透明背景
 bindsym $mod+control+t exec xfce4-terminal  #支持透明背景
 
+# 快速打开ncmpcpp
+bindsym $mod+n exec xfce4-terminal -e ncmpcpp  #支持透明背景
+
 # kill focused window
 bindsym $mod+Shift+q kill
 

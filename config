@@ -237,6 +237,7 @@ assign [class="Firefox"] $WS2
 assign [class="google-chrome"] $W2
 assign [class="google-chrome-stable"] $WS2
 assign [class="chrome"] $WS2
+assign [class="ieaseMusic"] $WS6
 #assign [class="Firefox"] $WS2
 #assign [class="vim"] $WS4
 

@@ -89,7 +89,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+#bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -389,7 +389,7 @@ set $warning    #E7176A
 #set $primary    #F58E8E
 #set $tertiary   #7AABD4
 
-set $primary    #F58E8E
+set $primary    #F99157
 set $tertiary   #5c4d4d
 # colors                BORDER      BACKGROUND TEXT        INDICATOR
 client.focused          $primary    $primary   $foreground $primary

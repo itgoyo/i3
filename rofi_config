@@ -1,0 +1,42 @@
+rofi.lines: 10
+rofi.bw: 5
+#rofi.font: Cantarell 12
+#rofi.separator-style: solid
+rofi.show-icons: true
+rofi.line-margin: 5
+rofi.show: run
+rofi.hide-scrollbar: true
+rofi.width: 50
+rofci.auto-select: true
+rofi.color-enabled: true
+
+
+rofi.theme:~/.config/rofi/andrea.rasi
+
+rofi.terminal: xfce4-terminal
+
+
+#===solarized theme===
+#rofi.color-window: #002b37, #002b37, #003642
+#rofi.color-normal: #002b37, #819396, #002b37, #003642, #819396
+#rofi.color-active: #002b37, #008ed4, #002b37, #003642, #008ed4
+#rofi.color-urgent: #002b37, #da4281, #002b37, #003642, #da4281
+
+
+#===arc theme===
+#rofi.color-normal: #ffffff,#525d76,#f5f5f5,#5294e2,#ffffff
+#rofi.color-urgent: #ffffff,#dc322f,#f5f5f5,#5294e2,#dc322f
+#rofi.color-active: #ffffff,#c2cad0,#f5f5f5,#5294e2,#c2cad0
+#rofi.color-window: #ffffff,#f5f5f5
+
+#===blor theme===
+rofi.color-normal: argb:00000000,  #D8DEE9 , argb:00000000,  #FAC863 ,  #1B2B34
+rofi.color-urgent: argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34
+rofi.color-active: argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
+rofi.color-window: argb:ee222222, #FAC863 , #FAC863
+
+#===lb theme===
+#rofi.color-normal: argb:00000000, #1aa, argb:11FFFFFF, #1aa,#333
+#rofi.color-urgent: argb:00000000, #f99, argb:11FFFFFF, #f99,#333
+#rofi.color-active: argb:00000000, #aa1, argb:11FFFFFF, #aa1,#333
+#rofi.color-window: argb:ee333333, #1aa,#1aa

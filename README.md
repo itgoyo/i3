@@ -9,4 +9,6 @@
 - conky
 - xfce4-terminal
 
+### 欢迎大家Star
+
 ![](/Selection_004.png)

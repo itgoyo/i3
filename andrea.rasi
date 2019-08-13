@@ -5,6 +5,7 @@
  */
 
 /* Global settings and color variables */
+*
  {
    maincolor:        #8CE000;
    highlight:        bold #8CE000;
